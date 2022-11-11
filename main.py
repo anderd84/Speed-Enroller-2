@@ -3,7 +3,6 @@ import Modes
 import settings as s
 from selenium import webdriver
 import securepassword
-import logging as log
 
 def main():
     print("===================Speed Enroller v2=====================")
