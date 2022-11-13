@@ -41,8 +41,13 @@ def DevMode(driver):
 
     for i in range(s.DEV_TABS):
         driver.switch_to.window(driver.window_handles[i])
+        timeleft = 0
         while (datetime.datetime.now() < s.targetTime - datetime.timedelta(seconds=split)):
             sleep(.0001)
+            newTimeleft = datetime.timedelta(seconds = (s.targetTime - datetime.datetime.now()).seconds)
+            if newTimeleft != timeleft:
+                timeleft = newTimeleft
+                print(f"Time left: {timeleft.seconds} seconds")
         split -= delta
 
         driver.find_element_by_xpath(f"//button[text()='{s.CLICKTEXT}']").click()
