@@ -43,8 +43,6 @@ def DevMode(driver):
         driver.switch_to.window(driver.window_handles[i])
         while (datetime.datetime.now() < s.targetTime - datetime.timedelta(seconds=split)):
             sleep(.0001)
-            if (abs(datetime.datetime.now() - s.targetTime) < datetime.timedelta(seconds=.1)):
-                print("target time reached")
         split -= delta
 
         driver.find_element_by_xpath(f"//button[text()='{s.CLICKTEXT}']").click()
