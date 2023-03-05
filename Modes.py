@@ -26,6 +26,9 @@ def DevMode(driver):
             driver.quit()
             return -1
         element.click()
+
+        if i == 0:
+            driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2023 Fall/cart")
         
         try:
             element = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Register']")))
