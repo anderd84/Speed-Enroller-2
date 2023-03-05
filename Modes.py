@@ -14,7 +14,7 @@ def DevMode(driver):
     for i in range(s.DEV_TABS):
         if i != 0:
             driver.switch_to.new_window('tab')
-        driver.get("https://erau.collegescheduler.com/entry")
+        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2023 Fall/cart")
 
         if login(driver) < 0:
             return -1
