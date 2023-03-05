@@ -58,7 +58,7 @@ def DevMode(driver):
 
 def login(driver):
     try:
-        element = WebDriverWait(driver, s.SHOPPING_CART_DELAY).until(EC.element_to_be_clickable((By.XPATH, "//button[text()='LOG IN']")))
+        element = WebDriverWait(driver, s.SHOPPING_CART_DELAY).until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Log In']")))
     except:
         if (not driver.find_element_by_xpath("//span[text()='Shopping Cart']")):
             log.error("Log in button not found")
