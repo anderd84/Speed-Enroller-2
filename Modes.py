@@ -14,7 +14,7 @@ def DevMode(driver):
     for i in range(s.DEV_TABS):
         if i != 0:
             driver.switch_to.new_window('tab')
-        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2023 Fall/cart")
+        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2024 Spring/cart")
 
         if login(driver) < 0:
             return -1
@@ -28,7 +28,7 @@ def DevMode(driver):
         element.click()
 
         if i == 0:
-            driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2023 Fall/cart")
+            driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2024 Spring/cart")
         
         try:
             element = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Register']")))
@@ -73,32 +73,6 @@ def login(driver):
     driver.find_element_by_id("inputPassword").send_keys(s.pw)
     element.click()
     return 0
-
-
-def StandardMode(driver):
-    classes = int(input("how many classes to enroll? "))
-    driver.get("https://sis.erau.edu/psc/eracsprd_6/EMPLOYEE/SA/c/SSR_STUDENT_FL.SSR_MD_SP_FL.GBL?Action=U&MD=Y&GMenu=SSR_STUDENT_FL&GComp=SSR_START_PAGE_FL&GPage=SSR_START_PAGE_FL&scname=CS_SSR_MANAGE_CLASSES_NAV")
-
-    while (datetime.datetime.now() < s.targetTime):
-        sleep(.0001)
-
-    driver.refresh()
-    try:
-        element = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "DERIVED_REGFRM1_SSR_SELECT$0")))
-    except:
-        log.error("Checkmark not found")
-        return -1
-    
-    for i in range(classes):
-        element = f"//*[@id=\"DERIVED_REGFRM1_SSR_SELECT${i}\"]"
-        driver.find_element_by_xpath(element).click()
-    
-    while (driver.find_element_by_id("DERIVED_SSR_FL_SSR_ENROLL_FL")):
-        driver.find_element_by_id("DERIVED_SSR_FL_SSR_ENROLL_FL").click()
-
-    sleep(60)
-
-
 
 if __name__ == '__main__':
     main.main()

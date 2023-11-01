@@ -19,7 +19,6 @@ def main():
         now = datetime.datetime.now()
         goal = datetime.datetime.strptime(input("Target Time (HH:MM): "), "%H:%M")
         s.targetTime = datetime.datetime(now.year, now.month, now.day, goal.hour, goal.minute, 0)
-        devmode = input("Input developer code or press enter to continue: ")
         s.CLICKTEXT = "Continue"
     print("=========================================================")
 
@@ -27,12 +26,9 @@ def main():
     driver = webdriver.Firefox()
     print("Web driver started.")
 
-    if devmode == "exe":
-        if (Modes.DevMode(driver) < 0):
-            if input("Process failed, retry (y/n)? ") == 'y':
-                main()
-    else:
-        Modes.StandardMode(driver)
+    if (Modes.DevMode(driver) < 0):
+        if input("Process failed, retry (y/n)? ") == 'y':
+            main()
 
 if __name__ == '__main__':
     main()
