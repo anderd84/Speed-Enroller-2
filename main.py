@@ -8,11 +8,10 @@ def main():
     print("===================Speed Enroller v2=====================")
     s.testMode = True if input("Test Mode? (y/n): ") == 'y' else False
     if s.testMode:
-        s.id = "id"
-        s.pw = "password"
+        s.id = ""
+        s.pw = ""
         s.targetTime = datetime.datetime.now() + datetime.timedelta(minutes=1.5)
-        s.CLICKTEXT = "Cancel"
-        devmode = "exe"
+        s.CLICKTEXT = "Continue"
     else:
         s.id = input("ERAU login ID: ")
         s.pw = securepassword.getpass("ERAU login PW: ")

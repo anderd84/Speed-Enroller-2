@@ -14,7 +14,7 @@ def DevMode(driver):
     for i in range(s.DEV_TABS):
         if i != 0:
             driver.switch_to.new_window('tab')
-        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2024 Spring/cart")
+        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2024 Fall/cart")
 
         if login(driver) < 0:
             return -1
@@ -40,7 +40,7 @@ def DevMode(driver):
 
     
     delta = 5 / (s.DEV_TABS - 3)
-    split = 5
+    split = 3
 
     for i in range(s.DEV_TABS):
         driver.switch_to.window(driver.window_handles[i])
