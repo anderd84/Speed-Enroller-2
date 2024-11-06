@@ -14,7 +14,7 @@ def DevMode(driver):
     for i in range(s.DEV_TABS):
         if i != 0:
             driver.switch_to.new_window('tab')
-        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2024 Fall/cart")
+        driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2025 Spring/cart")
 
         if login(driver) < 0:
             return -1
@@ -28,7 +28,7 @@ def DevMode(driver):
         element.click()
 
         if i == 0:
-            driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2024 Spring/cart")
+            driver.get("https://erau.collegescheduler.com/terms/Daytona-Prescott 2025 Spring/cart")
         
         try:
             element = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Register']")))
